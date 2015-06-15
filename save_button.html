@@ -1,0 +1,26 @@
+<template name="saveButton">
+  {{#unless saving}}
+    <button type="submit" class="save-btn {{buttonClasses}}">
+      {{#if Template.contentBlock}}
+        {{> Template.contentBlock}}
+      {{else}}
+        {{> _btnText}}
+      {{/if}}
+    </button>
+
+  {{else}}
+    <button type="submit" disabled="true" 
+            class="disabled save-btn {{buttonClasses}}">
+      {{#if Template.elseBlock}}
+        {{> Template.elseBlock}}
+      {{else}}
+        <i class="fa fa-refresh fa-spin"></i> {{> _btnText}}
+      {{/if}}
+    </button>
+  {{/unless}}
+</template>
+
+<!-- default button text -->
+<template name="_btnText">
+  {{#if buttonText}}{{buttonText}}{{else}}Save{{/if}}
+</template>
